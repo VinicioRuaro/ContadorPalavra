@@ -1,16 +1,17 @@
+package Teste;
 import java.util.concurrent.RecursiveTask;
 
-public class Fibonati extends RecursiveTask<Long> {
-    long atual;
-    static long um = 1; 
-    static long zero = 0;
-    
-    public Fibonati(long atual) {
+public class contador extends RecursiveTask<Long> {
+    int atual;
+    ArrayList<String> entrada = new ArrayList();
+    public contador(int atual,ArrayList<String> entrada, ArrayList<int> usado) {
         this.atual=atual;
+        this.entrada
     }
     
     @Override
-    protected Long compute(){
+    protected Void compute(){
+        
         if(atual == um){
             return um;
         }
@@ -18,13 +19,15 @@ public class Fibonati extends RecursiveTask<Long> {
             return zero;
         }
         
-        Fibonati c1 = new Fibonati(atual-1);
-        Fibonati c2 = new Fibonati(atual-2);
+        
+        
+        
+        contador c1 = new contador(atual+2);
         c1.fork();
-        c2.fork();
-        long c1Resultado = c1.join();  
-        long c2Resultado = c2.join();
-        return c1Resultado + c2Resultado;
+         
+        
+        
+        
         }
         
     
